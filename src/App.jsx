@@ -6,6 +6,7 @@ const App = () => {
   const [value, setValue] = useState("");
   const [weathers, setWeathers] = useState({});
   const [location, setLocation] = useState(null);
+  const [showcard, SetShowCard] = useState("");
   const apiKey = "61b69dc9c50d1f9c130f54589a7a7b1c";
 
   //useEffect function
@@ -29,27 +30,39 @@ const App = () => {
   const onSearch = (event) => {
     event.preventDefault();
     setLocation(value);
+    SetShowCard("card");
     setValue("");
   };
-
   return (
     <div className="app">
       <form onSubmit={onSearch} className="form">
-        enter location: <input value={value} onChange={handleLocationChange} />
+        Enter City Name <input value={value} onChange={handleLocationChange} />
         <button type="submit" className="findbtn">
-          submit
+          Submit
         </button>
       </form>
-      {weathers.weather?.map((w) => (
-        <div className="weatherbox" key={w.id}>
-          <h2> Weather: {w.main}</h2>
+      <div className={showcard}>
+        <div>
+          <h2 className="place">
+            {Object.keys(weathers).length !== 0 ? weathers.name : null}{" "}
+            {Object.keys(weathers).length !== 0 ? weathers.sys.country : null}
+          </h2>
         </div>
-      ))}
-      <span className="tempbox">
-        {Object.keys(weathers).length !== 0
-          ? `Temperature: ` + weathers.main.temp + `\u00B0`
-          : null}
-      </span>
+        <div>
+          {weathers.weather?.map((w) => (
+            <div className="weatherbox" key={w.id}>
+              <h3> Weather : {w.main}</h3>
+            </div>
+          ))}
+        </div>
+        <div>
+          <span className="tempbox">
+            {Object.keys(weathers).length !== 0
+              ? `Temperature : ` + weathers.main.temp + `\u00B0`
+              : null}
+          </span>
+        </div>
+      </div>
     </div>
   );
 };
