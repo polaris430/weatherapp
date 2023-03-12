@@ -44,7 +44,7 @@ const App = () => {
       <div className={showcard}>
         <div>
           <h2 className="place">
-            {Object.keys(weathers).length !== 0 ? weathers.name : null}{" "}
+            {Object.keys(weathers).length !== 0 ? weathers.name + "," : null}{" "}
             {Object.keys(weathers).length !== 0 ? weathers.sys.country : null}
           </h2>
         </div>
