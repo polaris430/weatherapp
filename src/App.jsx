@@ -6,7 +6,7 @@ const App = () => {
   const [value, setValue] = useState("");
   const [weathers, setWeathers] = useState({});
   const [location, setLocation] = useState(null);
-  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiKey = "61b69dc9c50d1f9c130f54589a7a7b1c";
 
   //useEffect function
   useEffect(() => {
