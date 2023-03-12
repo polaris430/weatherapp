@@ -1,3 +1,3 @@
 How to work code using own API keys
 
-Kindly save API key in .env file and access in App.jsx file. Also save .env in gitignore file so it doesn't get uploaded on Github.
+.env file, created on source directory, is referenced in App.jsx using VITE_API_KEY. Its also added in gitignore file to not push to github.
